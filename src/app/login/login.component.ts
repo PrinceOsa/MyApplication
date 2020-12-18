@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   }
   getDashboard() {
     const token = localStorage.getItem('jwt');
-    axios.get('http://159.65.225.237:3200/Dashboard', {
+    axios.get('http://159.65.225.237:3000/Dashboard', {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         username: (<HTMLInputElement>document.getElementById('username')).value,
         password: (<HTMLInputElement>document.getElementById('password')).value,
     };
-    axios.post('http://159.65.225.237:3200/api/login', data)
+    axios.post('http://159.65.225.237:3000/api/login', data)
         .then(res => {
             console.log(res);
             (<HTMLInputElement>document.getElementById('username')).value = '';
