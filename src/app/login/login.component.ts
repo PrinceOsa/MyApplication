@@ -25,13 +25,13 @@ export class LoginComponent implements OnInit {
         }
     }).then(res => {
         if (res && res.data && res.data.success) {
-          location.assign('/dashboard');
-            history.pushState({pageID: 'Dashboard'}, 'Dashboard', '/Dashboard');
+          location.assign('/Dashboard');
 
 
         }
     });
   }
+
    login(){
     const data = {
         username: (<HTMLInputElement>document.getElementById('username')).value,
@@ -45,7 +45,8 @@ export class LoginComponent implements OnInit {
             if(res && res.data && res.data.success) {
                 const token = res.data.token;
                 localStorage.setItem('jwt',token);
-                location.assign('/Dashboard');
+                //location.assign('/Dashboard');
+                history.pushState({pageID: 'Dashboard'}, 'Dashboard', '/Dashboard');
               }
         });
 }
