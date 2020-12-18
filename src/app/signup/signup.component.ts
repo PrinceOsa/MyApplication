@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios, { AxiosRequestConfig, AxiosPromise } from 'axios';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,7 +10,7 @@ import axios, { AxiosRequestConfig, AxiosPromise } from 'axios';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -30,7 +31,7 @@ export class SignupComponent implements OnInit {
           username: (<HTMLInputElement>document.getElementById('username')).value,
           password: (<HTMLInputElement>document.getElementById('password')).value,
       };
-      axios.post('159.65.225.237/api/user', data)
+      axios.post('http://159.65.225.237:3000/api/user', data)
           .then(res => {
               console.log(res);
               (<HTMLInputElement>document.getElementById('username')).value = '';
@@ -38,7 +39,7 @@ export class SignupComponent implements OnInit {
               if(res && res.data && res.data.success) {
                   const token = res.data.token;
                   localStorage.setItem('jwt',token);
-                  location.assign('/Dashboard');
+                  this.router.navigateByUrl('/Dashboard');
                 }
           });
   }
