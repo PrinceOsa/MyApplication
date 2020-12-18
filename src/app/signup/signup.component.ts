@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
           username: (<HTMLInputElement>document.getElementById('username')).value,
           password: (<HTMLInputElement>document.getElementById('password')).value,
       };
-      axios.post('http://localhost:3200/api/user', data)
+      axios.post('159.65.225.237/api/user', data)
           .then(res => {
               console.log(res);
               (<HTMLInputElement>document.getElementById('username')).value = '';

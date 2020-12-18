@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 
 const app = express();
-const PORT = 3200;
+const PORT = '159.65.225.237';
 const router = express.Router();
 
 const exjwt = require('express-jwt');
@@ -19,7 +19,7 @@ let url = 'mongodb+srv://chidi-admin:Password1@cluster0.8zfgu.mongodb.net/person
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3200');
+    res.setHeader('Access-Control-Allow-Origin', '159.65.225.237');
     res.setHeader('Access-Control-Allow-Headers', 'Content-type,Authorization');
     next();
 });
