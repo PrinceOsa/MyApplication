@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 export class LoginComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
@@ -45,8 +46,7 @@ export class LoginComponent implements OnInit {
             if(res && res.data && res.data.success) {
                 const token = res.data.token;
                 localStorage.setItem('jwt',token);
-                history.pushState({pageID: 'Dashboard'}, 'Dashboard', 'http://159.65.225.237:3000/Dashboard');
-
+                this.router.navigateByUrl('/Dashboard');
               }
         });
 }
