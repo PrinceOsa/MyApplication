@@ -19,7 +19,7 @@ let url = 'mongodb+srv://chidi-admin:Password1@cluster0.8zfgu.mongodb.net/person
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '159.65.225.237');
+    res.setHeader('Access-Control-Allow-Origin', 'http://159.65.225.237');
     res.setHeader('Access-Control-Allow-Headers', 'Content-type,Authorization');
     next();
 });
