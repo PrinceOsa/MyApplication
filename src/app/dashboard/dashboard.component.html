@@ -1,0 +1,34 @@
+<h1>Chart</h1>
+  <div>
+   <canvas  class= "content" id="myChart" width="400" height="400"></canvas>
+   <canvas  class= "content" id="myChart2" width="400" height="400"></canvas>
+   <canvas  class= "content" id="myChart3" width="400" height="400"></canvas>
+
+  </div>
+
+  <div class="user-data">
+    <h2>Enter Your Budget Details</h2>
+
+          <label>Category Name</label>
+          <input id="title" type = "text">
+          <label>Budget Number</label>
+          <input id="amount" type = "Number">
+    <button (click)="send()">Submit</button>
+    <button (click)= "getBudget()">ReCalculate</button>
+
+  </div>
+
+  <div class="remove-user-data">
+    <h2>Remove Your Budget Details</h2>
+
+          <label>Category Name</label>
+          <input id="removeTitle" type = "text">
+          <label>Budget Number</label>
+          <input id="removeAmount" type = "Number">
+    <button (click)="remove()">Submit</button>
+    <button (click)= "getBudget()">ReCalculate</button>
+
+  </div>
+
+
+

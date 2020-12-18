@@ -1,0 +1,61 @@
+/* Document
+   ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+ html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+
+/**
+ * Remove the margin in all browsers.
+ */
+
+body {
+  margin: 0;
+
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+
+main {
+  display: inline-block;
+
+}
+.footer {
+  height: 50px;
+
+  background-color: #03C04A;
+  padding: 30px;
+
+}
+.topnav {
+  background-color: #03C04A;
+  overflow: hidden;
+
+}
+
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #000000;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
