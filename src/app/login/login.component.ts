@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   }
   getDashboard() {
     const token = localStorage.getItem('jwt');
-    axios.get('http://159.65.225.237:3000/Dashboard', {
+    axios.get('http://159.65.225.237/Dashboard', {
         headers: {
             'Authorization': `Bearer ${token}`
         }
