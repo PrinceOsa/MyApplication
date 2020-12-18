@@ -78,7 +78,7 @@ labels: []};
 
 
 getBudget(){
-axios.get("159.65.225.237/budget")
+axios.get("http://localhost:3200/budget")
         .then(function(res:any){
 
          var dataSource = {

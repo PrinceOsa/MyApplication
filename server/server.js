@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 
 const app = express();
-const PORT = '159.65.225.237';
+const PORT = 3200;
 const router = express.Router();
 
 const exjwt = require('express-jwt');
