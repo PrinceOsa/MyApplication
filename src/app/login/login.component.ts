@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
             if(res && res.data && res.data.success) {
                 const token = res.data.token;
                 localStorage.setItem('jwt',token);
-                //location.assign('/Dashboard');
+                location.assign('/Dashboard');
                 history.pushState({pageID: 'Dashboard'}, 'Dashboard', '/Dashboard');
               }
         });
