@@ -45,7 +45,7 @@ labels: []};
   let username = localStorage.getItem('name')
 
   axios
-    .post("http://localhost/addBudget", {
+    .post("http://159.65.225.237:3000/addBudget", {
       title: (<HTMLInputElement>document.getElementById('title')).value,
       budget: (<HTMLInputElement>document.getElementById('amount')).value,
       color: color,
@@ -78,7 +78,7 @@ labels: []};
 
 
 getBudget(){
-axios.get("http://localhost/budget")
+axios.get("http://159.65.225.237:3000/budget")
         .then(function(res:any){
 
          var dataSource = {
@@ -134,7 +134,7 @@ async remove(){
     console.log((<HTMLInputElement>document.getElementById('removeAmount')).value);
     let token = localStorage.getItem("jwt");
     axios
-      .post("http://localhost/removeBudget", {
+      .post("http://159.65.225.237:3000/removeBudget", {
         title: (<HTMLInputElement>document.getElementById('removeTitle')).value,
         budget: (<HTMLInputElement>document.getElementById('removeAmount')).value,
       },
