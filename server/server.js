@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 
 const app = express();
-const PORT = process.env.port || 3200;
+const PORT = 3200;
 const router = express.Router();
 
 const exjwt = require('express-jwt');
@@ -13,7 +13,6 @@ const path = require('path');
 
 const nameModel = require('../src/app/models/budget_schema');
 const userModel = require('../src/app/models/user_schema');
-const { error } = require('console');
 let url = 'mongodb+srv://chidi-admin:Password1@cluster0.8zfgu.mongodb.net/personal_budget';
 
 app.use(bodyParser.json());
