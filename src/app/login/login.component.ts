@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   }
   getDashboard() {
     const token = localStorage.getItem('jwt');
-    axios.get('http://159.65.225.237/Dashboard', {
+    axios.get('http://159.65.225.237:3000/Dashboard', {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
             if(res && res.data && res.data.success) {
                 const token = res.data.token;
                 localStorage.setItem('jwt',token);
-                history.pushState({pageID: 'Dashboard'}, 'Dashboard', 'http://159.65.225.237/Dashboard');
+                history.pushState({pageID: 'Dashboard'}, 'Dashboard', 'http://159.65.225.237:3000/Dashboard');
 
               }
         });
