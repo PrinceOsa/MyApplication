@@ -80,39 +80,27 @@ app.post('/api/user', (req, res) => {
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 userModel.findOne({ username: req.body.username }, function (err, user) {
-if (user.username == null|| user.username == err || user.username != req.body.username) {
-      let token = jwt.sign({username: req.username}, secretKey, {expiresIn:'7min' });
-        console.log("Im here 1");
+  if (user.username == req.body.username) {
+    let token = jwt.sign({ id: user._id, username: user.username}, secretKey, {expiresIn:'1min' });
 
-        newUser = {
-          username: req.body.username,
-          password: req.body.password,
-        };
-        userModel
-          .insertMany(newUser)
-          .then((data) => {
-            console.log("Im here 2");
+    console.log(token);
+    res.json({
+      success: false,
+      token: null,
+      err: 'Username Taken'
+});
+  }
+  else {
 
-            console.log("mongoose connected and inserted");
-          })
-        console.log(token);
-        res.json({
-          success: true,
-          err: null,
-          token
-  });
-      }
-    else {
+     res.json({
+    success: true,
+    err: null,
+    token
 
-      res.status(401).json({
+});
 
-          success: false,
-          token: null,
-          err: 'Username or password is incorrect'
 
-      });
-
-    }
+}
 
   });
 
