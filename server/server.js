@@ -58,16 +58,6 @@ if (user.username == req.body.username && user.password == req.body.password) {
 
   });
       }
-      else if(user.username != req.body.username || user.password != req.body.password) {
-        console.log('Wrong Username or Password');
-
-        res.json({
-          success: false,
-          err: null,
-          token
-
-      }
-    }
     else {
       res.status(401).json({
           success: false,
@@ -90,7 +80,7 @@ app.post('/api/user', (req, res) => {
   mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
   userModel.findOne({ username: req.body.username }, function (err, user) {
 if (user == null|| user == err ) {
-        let token = jwt.sign({username: req.username}, secretKey, {expiresIn:'7min' });
+        let token = jwt.sign({username: req.body.username}, secretKey, {expiresIn:'7min' });
 
         newUser = {
           username: req.body.username,
