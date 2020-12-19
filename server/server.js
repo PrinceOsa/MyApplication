@@ -12,7 +12,7 @@ const jwt = require('jsonwebtoken');
 const path = require('path');
 
 const nameModel = require('../src/app/models/budget_schema');
-const userModel = require('../src/app/models/user_schema');
+const userSchema = require('../src/app/models/user_schema');
 let url = 'mongodb+srv://chidi-admin:Password1@cluster0.8zfgu.mongodb.net/personal_budget';
 
 app.use(bodyParser.json());
@@ -44,7 +44,7 @@ app.post('/api/login', (req, res) => {
     console.log('UNCAUGHT EXCEPTION - WRONG PASSWORD', err);
 });
   mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
-  userModel.findOne({ username: req.body.username }, function (err, user) {
+  userSchema.findOne({ username: req.body.username }, function (err, user) {
     localStorage.setItem('name', req.body.username);
 
 if (user.username == req.body.username && user.password == req.body.password) {
@@ -79,7 +79,9 @@ app.post('/api/user', (req, res) => {
 });
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
-userModel.findOne({ username: req.body.username }, function (err, user) {
+userSchema.findOne({ username: req.body.username }, function (err, user) {
+  localStorage.setItem('name', req.body.username);
+
   if (user.username != req.body.username) {
     let token = jwt.sign({username: req.username}, secretKey, {expiresIn:'7min' });
 
@@ -87,12 +89,16 @@ userModel.findOne({ username: req.body.username }, function (err, user) {
       username: req.body.username,
       password: req.body.password,
     };
-    userModel
+    userSchema
       .insertMany(newUser)
       .then((data) => {
         console.log("mongoose connected and inserted");
         res.json(data);
+        mongoose.connection.close();
       })
+      .catch((connectionError) => {
+        console.log(connectionError);
+      });
     console.log(token);
     res.json({
       success: true,
