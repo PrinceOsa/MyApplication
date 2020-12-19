@@ -11,6 +11,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from './auth.guard';
 import { HomeComponent } from './home/home.component';
+import { P404Component } from './p404/p404.component';
 
 
 @NgModule({
@@ -32,7 +33,9 @@ import { HomeComponent } from './home/home.component';
       {path: 'Logout', component: LogoutComponent,   canActivate:[AuthGuard]    },
       {path: 'Login', component: LoginComponent},
       {path: 'Signup', component: SignupComponent},
-      {path: ' ', component: HomeComponent},
+      {path: '/', component: HomeComponent},
+      {path: '', component: HomeComponent},
+      {path: '**', component: P404Component},
     ]),
   ],
   providers: [AuthGuard],

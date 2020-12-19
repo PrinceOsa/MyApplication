@@ -1,30 +1,30 @@
-<h1>Chart</h1>
+<h1 title="Chart">Chart</h1>
   <div>
-   <canvas  class= "content" id="myChart" width="400" height="400"></canvas>
-   <canvas  class= "content" id="myChart2" width="400" height="400"></canvas>
-   <canvas  class= "content" id="myChart3" width="400" height="400"></canvas>
+   <canvas  for= "Chart" class= "content" id="myChart" width="400" height="400"></canvas>
+   <canvas  for= "Chart" class= "content" id="myChart2" width="400" height="400"></canvas>
+   <canvas  for= "Chart" class= "content" id="myChart3" width="400" height="400"></canvas>
 
   </div>
 
   <div class="user-data">
-    <h2>Enter Your Budget Details</h2>
+    <h2 title="Enter Your Budget Details">Enter Your Budget Details</h2>
 
-          <label>Category Name</label>
-          <input id="title" type = "text">
-          <label>Budget Number</label>
-          <input id="amount" type = "Number">
+          <label for="Category">Category Name</label>
+          <input id="title" type = "text" required>
+          <label for="Category">Budget Number</label>
+          <input id="amount" type = "Number" required>
     <button (click)="send()">Submit</button>
     <button (click)= "getBudget()">ReCalculate</button>
 
   </div>
 
   <div class="remove-user-data">
-    <h2>Remove Your Budget Details</h2>
+    <h2 title="Remove Your Budget Details">Remove Your Budget Details</h2>
 
-          <label>Category Name</label>
-          <input id="removeTitle" type = "text">
-          <label>Budget Number</label>
-          <input id="removeAmount" type = "Number">
+          <label for="Category">Category Name</label>
+          <input id="removeTitle" type = "text" required>
+          <label for="Category">Budget Number</label>
+          <input id="removeAmount" type = "Number" required>
     <button (click)="remove()">Submit</button>
     <button (click)= "getBudget()">ReCalculate</button>
 
