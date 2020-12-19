@@ -33,7 +33,6 @@ import { P404Component } from './p404/p404.component';
       {path: 'Logout', component: LogoutComponent,   canActivate:[AuthGuard]    },
       {path: 'Login', component: LoginComponent},
       {path: 'Signup', component: SignupComponent},
-      {path: '/', component: HomeComponent},
       {path: '', component: HomeComponent},
       {path: '**', component: P404Component},
     ]),
