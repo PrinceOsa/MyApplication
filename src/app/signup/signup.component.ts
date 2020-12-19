@@ -18,11 +18,11 @@ export class SignupComponent implements OnInit {
 
   signUp(){
 
-    if((<HTMLInputElement>document.getElementById('username')).value == ''){
+    if((<HTMLInputElement>document.getElementById('username')).value == ' '){
       console.error('Enter a username');
       return;
     }
-    else if((<HTMLInputElement>document.getElementById('password')).value = ''){
+    else if((<HTMLInputElement>document.getElementById('password')).value == ' '){
       console.error('Enter Password');
       return;
     }
@@ -35,12 +35,12 @@ export class SignupComponent implements OnInit {
       axios.post('http://159.65.225.237:3000/api/user', data)
           .then(res => {
               console.log(res);
-              (<HTMLInputElement>document.getElementById('username')).value = '';
-              (<HTMLInputElement>document.getElementById('password')).value = '';
               if(res && res.data && res.data.success) {
                   const token = res.data.token;
+                  localStorage.setItem('name', (<HTMLInputElement>document.getElementById('username')).value);
                   localStorage.setItem('jwt',token);
-                  this.router.navigateByUrl('/Dashboard');
+                  (<HTMLInputElement>document.getElementById('username')).value = '';
+              (<HTMLInputElement>document.getElementById('password')).value = '';
                 }
           });
   }
