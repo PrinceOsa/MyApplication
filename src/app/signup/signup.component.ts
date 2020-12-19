@@ -16,20 +16,6 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getDashboard() {
-    const token = localStorage.getItem('jwt');
-    axios.get('http://159.65.225.237:3000/Dashboard', {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    }).then(res => {
-        if (res && res.data && res.data.success) {
-          location.assign('/Dashboard');
-
-
-        }
-    });
-  }
 
   async signUp(){
 
