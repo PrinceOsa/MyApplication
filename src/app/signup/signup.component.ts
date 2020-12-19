@@ -15,6 +15,21 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getDashboard() {
+    const token = localStorage.getItem('jwt');
+    axios.get('http://159.65.225.237:3000/Dashboard', {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    }).then(res => {
+        if (res && res.data && res.data.success) {
+          location.assign('/Dashboard');
+
+
+        }
+    });
+  }
+
   signUp(){
 
     if((<HTMLInputElement>document.getElementById('username')).value == ''){
@@ -39,6 +54,7 @@ export class SignupComponent implements OnInit {
               if(res && res.data && res.data.success) {
                   const token = res.data.token;
                   localStorage.setItem('jwt',token);
+                  this.getDashboard();
                   this.router.navigateByUrl('/Dashboard');
                 }
           });
