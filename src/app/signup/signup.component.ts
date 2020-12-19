@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import axios, { AxiosRequestConfig, AxiosPromise } from 'axios';
 import { Router } from '@angular/router';
+import { RESOURCE_CACHE_PROVIDER } from '@angular/platform-browser-dynamic';
 
 
 @Component({
@@ -48,12 +49,14 @@ export class SignupComponent implements OnInit {
       };
       axios.post('http://159.65.225.237:3000/api/user', data)
           .then(res => {
+
               console.log(res);
               (<HTMLInputElement>document.getElementById('username')).value = '';
               (<HTMLInputElement>document.getElementById('password')).value = '';
               if(res && res.data && res.data.success) {
                   const token = res.data.token;
                   localStorage.setItem('jwt',token);
+                  localStorage.setItem('name',res.config.data.username);
                   this.getDashboard();
                   this.router.navigateByUrl('/Dashboard');
                 }
