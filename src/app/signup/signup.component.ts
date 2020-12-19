@@ -36,9 +36,6 @@ export class SignupComponent implements OnInit {
           .then(res => {
               console.log(res);
               if(res && res.data && res.data.success) {
-                  const token = res.data.token;
-                  localStorage.setItem('name', (<HTMLInputElement>document.getElementById('username')).value);
-                  localStorage.setItem('jwt',token);
                   this.router.navigateByUrl('/Login');
 
                 }
