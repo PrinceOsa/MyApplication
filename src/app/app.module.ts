@@ -32,6 +32,7 @@ import { HomeComponent } from './home/home.component';
       {path: 'Logout', component: LogoutComponent,   canActivate:[AuthGuard]    },
       {path: 'Login', component: LoginComponent},
       {path: 'Signup', component: SignupComponent},
+      {path: ' ', component: HomeComponent},
     ]),
   ],
   providers: [AuthGuard],
