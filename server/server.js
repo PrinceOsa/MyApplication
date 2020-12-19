@@ -77,10 +77,11 @@ app.post('/api/user', (req, res) => {
   process.on('uncaughtException', function (err) {
     console.log('UNCAUGHT EXCEPTION - WRONG PASSWORD', err);
 });
-  mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
-  userModel.findOne({ username: req.body.username }, function (err, user) {
+
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+userModel.findOne({ username: req.body.username }, function (err, user) {
 if (user == null|| user == err ) {
-        let token = jwt.sign({username: req.username}, secretKey, {expiresIn:'7min' });
+      let token = jwt.sign({username: req.username}, secretKey, {expiresIn:'7min' });
         console.log("Im here 1");
 
         newUser = {
@@ -102,7 +103,6 @@ if (user == null|| user == err ) {
   });
       }
     else {
-      console.log("Im here 3");
 
       res.status(401).json({
 
