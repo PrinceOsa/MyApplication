@@ -56,7 +56,6 @@ export class SignupComponent implements OnInit {
                   const token = res.data.token;
                   localStorage.setItem('jwt',token);
                   localStorage.setItem('name', (<HTMLInputElement>document.getElementById('username')).value);
-                  this.getDashboard();
                   this.router.navigateByUrl('/Dashboard');
                   (<HTMLInputElement>document.getElementById('username')).value = '';
                   (<HTMLInputElement>document.getElementById('password')).value = '';
