@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  signUp(){
+  async signUp(){
 
     if((<HTMLInputElement>document.getElementById('username')).value == ''){
       console.error('Enter a username');
