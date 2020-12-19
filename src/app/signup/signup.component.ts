@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
       console.error('Enter a username');
       return;
     }
-    else if((<HTMLInputElement>document.getElementById('password')).value = ''){
+    else if((<HTMLInputElement>document.getElementById('password')).value == ''){
       console.error('Enter Password');
       return;
     }
