@@ -48,6 +48,9 @@ export class LoginComponent implements OnInit {
                 localStorage.setItem('jwt',token);
                 this.router.navigateByUrl('/Dashboard');
               }
+              else if(res.data.success == false) {
+                console.log('Password Incorrect');
+              }
         });
 }
 

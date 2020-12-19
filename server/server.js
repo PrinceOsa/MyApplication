@@ -58,6 +58,16 @@ if (user.username == req.body.username && user.password == req.body.password) {
 
   });
       }
+      else if(user.username != req.body.username || user.password != req.body.password) {
+        console.log('Wrong Username or Password');
+
+        res.json({
+          success: false,
+          err: null,
+          token
+
+      }
+    }
     else {
       res.status(401).json({
           success: false,
