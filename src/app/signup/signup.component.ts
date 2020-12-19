@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios, { AxiosRequestConfig, AxiosPromise } from 'axios';
 import { Router } from '@angular/router';
-import { RESOURCE_CACHE_PROVIDER } from '@angular/platform-browser-dynamic';
 
 
 @Component({
@@ -17,13 +16,13 @@ export class SignupComponent implements OnInit {
   }
 
 
-  async signUp(){
+  signUp(){
 
     if((<HTMLInputElement>document.getElementById('username')).value == ''){
       console.error('Enter a username');
       return;
     }
-    else if((<HTMLInputElement>document.getElementById('password')).value == ''){
+    else if((<HTMLInputElement>document.getElementById('password')).value = ''){
       console.error('Enter Password');
       return;
     }
@@ -35,17 +34,13 @@ export class SignupComponent implements OnInit {
       };
       axios.post('http://159.65.225.237:3000/api/user', data)
           .then(res => {
-
               console.log(res);
-
+              (<HTMLInputElement>document.getElementById('username')).value = '';
+              (<HTMLInputElement>document.getElementById('password')).value = '';
               if(res && res.data && res.data.success) {
                   const token = res.data.token;
-                  console.log("Im here 42");
                   localStorage.setItem('jwt',token);
-                  localStorage.setItem('name', (<HTMLInputElement>document.getElementById('username')).value);
                   this.router.navigateByUrl('/Dashboard');
-                  (<HTMLInputElement>document.getElementById('username')).value = '';
-                  (<HTMLInputElement>document.getElementById('password')).value = '';
                 }
           });
   }
