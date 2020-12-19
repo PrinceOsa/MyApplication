@@ -91,6 +91,7 @@ userModel.findOne({ username: req.body.username }, function (err, user) {
       .insertMany(newUser)
       .then((data) => {
         console.log("mongoose connected and inserted");
+        res.json(data);
       })
     console.log(token);
     res.json({
