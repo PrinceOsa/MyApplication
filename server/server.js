@@ -80,7 +80,7 @@ app.post('/api/user', (req, res) => {
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 userModel.findOne({ username: req.body.username }, function (err, user) {
-if (user.username == null|| user.username == err ) {
+if (user.username == null|| user.username == err || user.username != req.body.username) {
       let token = jwt.sign({username: req.username}, secretKey, {expiresIn:'7min' });
         console.log("Im here 1");
 
