@@ -9,7 +9,7 @@ export class LogoutComponent implements OnInit {
 
   constructor() {
     localStorage.removeItem('jwt');
-    localStorage.clear();
+    localStorage.removeItem('name');
 
    }
 
