@@ -83,7 +83,7 @@ userSchema.findOne({ username: req.body.username }, function (err, user) {
   localStorage.setItem('name', req.body.username);
 
   if (user.username != req.body.username) {
-    let token = jwt.sign({username: req.username}, secretKey, {expiresIn:'7min' });
+    let token = jwt.sign({username: req.username}, secretKey, {expiresIn:'1min' });
 
     newUser = {
       username: req.body.username,
