@@ -81,6 +81,7 @@ app.post('/api/user', (req, res) => {
   userModel.findOne({ username: req.body.username }, function (err, user) {
 if (user == null|| user == err ) {
         let token = jwt.sign({username: req.username}, secretKey, {expiresIn:'7min' });
+        console.log("Im here 1");
 
         newUser = {
           username: req.body.username,
@@ -89,6 +90,8 @@ if (user == null|| user == err ) {
         userModel
           .insertMany(newUser)
           .then((data) => {
+            console.log("Im here 2");
+
             console.log("mongoose connected and inserted");
           })
         console.log(token);
@@ -99,7 +102,10 @@ if (user == null|| user == err ) {
   });
       }
     else {
+      console.log("Im here 3");
+
       res.status(401).json({
+
           success: false,
           token: null,
           err: 'Username or password is incorrect'
