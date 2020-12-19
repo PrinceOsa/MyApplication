@@ -40,6 +40,7 @@ export class SignupComponent implements OnInit {
 
               if(res && res.data && res.data.success) {
                   const token = res.data.token;
+                  console.log("Im here 42");
                   localStorage.setItem('jwt',token);
                   localStorage.setItem('name', (<HTMLInputElement>document.getElementById('username')).value);
                   this.router.navigateByUrl('/Dashboard');
