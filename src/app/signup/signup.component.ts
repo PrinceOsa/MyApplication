@@ -51,14 +51,15 @@ export class SignupComponent implements OnInit {
           .then(res => {
 
               console.log(res);
-              (<HTMLInputElement>document.getElementById('username')).value = '';
-              (<HTMLInputElement>document.getElementById('password')).value = '';
+
               if(res && res.data && res.data.success) {
                   const token = res.data.token;
                   localStorage.setItem('jwt',token);
-                  localStorage.setItem('name',res.config.data.username);
+                  localStorage.setItem('name', (<HTMLInputElement>document.getElementById('username')).value);
                   this.getDashboard();
                   this.router.navigateByUrl('/Dashboard');
+                  (<HTMLInputElement>document.getElementById('username')).value = '';
+                  (<HTMLInputElement>document.getElementById('password')).value = '';
                 }
           });
   }
