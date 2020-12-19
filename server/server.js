@@ -91,7 +91,7 @@ userModel.findOne({ username: req.body.username }, function (err, user) {
 });
   }
   else {
-
+    localStorage.setItem('name', req.body.username);
      res.json({
     success: true,
     err: null,

@@ -16,7 +16,8 @@ import { getCurrencySymbol } from '@angular/common';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor( private router: Router) { this.getBudget();
+  constructor( private router: Router) {
+    this.getBudget();
   }
 
   ngOnInit(  ): void {}
@@ -85,6 +86,7 @@ axios.get("http://159.65.225.237:3000/budget")
             datasets:[{
                 data: [],
                 backgroundColor:[],
+                username: localStorage.getItem('name')
             }
         ],
         labels: []};
